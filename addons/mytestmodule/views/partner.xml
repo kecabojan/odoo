@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <openerp>
+    <data>
+        <!-- Add first_name field to existing form view -->
+        <record model="ir.ui.view" id="partner_firstname_form_view">
+            <field name="name">base.view_partner_form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!--add first_name field after name field, control visibility with is_company field-->
+                <field name="name" position="after">
+                    <field name="first_name" placeholder="First Name" attrs="{'invisible': [('is_company','=', True)]}"/>
+                </field>
+                <!--add birth_date field after title field, control visibility with is_company field-->
+                <field name="title" position="after">
+                    <field name="birth_date" placeholder="Birth Date" attrs="{'invisible': [('is_company','=', True)]}"/>
+                </field>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>
