@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- ABCD view -->
+        <record model="ir.ui.view" id="abcd_form_view">
+            <field name="name">abcd.form</field>
+            <field name="model">abcd.abcd</field>
+            <field name="arch" type="xml">
+                <form string="ABCD Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search view -->
+        <record model="ir.ui.view" id="abcd_search_view">
+            <field name="name">abcd.search</field>
+            <field name="model">abcd.abcd</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="description"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+        <record model="ir.actions.act_window" id="abcd_list_action">
+            <field name="name">ABCD list</field>
+            <field name="res_model">abcd.abcd</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the ABCD entry</p>
+            </field>
+        </record>
+
+        <!-- top level menu: no parent -->
+        <menuitem id="main_abcd_menu" name="ABCD top menu"/>
+        <!-- A first level in the left side menu is needed
+             before using action= attribute -->
+        <menuitem id="abcd_menu" name="ABCD Side menu"
+                  parent="main_abcd_menu"/>
+        <!-- the following menuitem should appear *after*
+             its parent abcd_menu and *after* its
+             action course_list_action -->
+        <menuitem id="abcd_sub_menu" name="abcd sub menu" parent="abcd_menu"
+                  action="abcd_list_action"/>
+        <!-- Full id location:
+             action="abcd.abcd_list_action"
+             It is not required when it is the same module -->
+
+        <!-- Add firstname field to existing view -->
+        <record model="ir.ui.view" id="partner_firstname_form_view">
+            <field name="name">partner.firstname</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Sssssss">
+                        <group>
+                            <field name="firstname"/>
+                        </group>
+                    </page>
+                </notebook>
+                <!--<field name="name" position="after">-->
+                    <!--<field name="firstname" string="First Name"/>-->
+                <!--</field>-->
+            </field>
+        </record>
+
+    </data>
+</openerp>

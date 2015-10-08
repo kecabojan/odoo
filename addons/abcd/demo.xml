@@ -1,0 +1,27 @@
+<openerp>
+    <data>
+        <!--  -->
+           <record id="abcd0" model="abcd.abcd">
+               <field name="name">Bojan Keca</field>
+               <field name="description">He is the author of this demo data.</field>
+           </record>
+
+           <record id="abcd1" model="abcd.abcd">
+               <field name="name">Milica Stanisavljevic</field>
+               <field name="description">SHe is author's girlfriend.</field>
+           </record>
+        <!--  -->
+        <!--   <record id="object2" model="abcd.abcd"> -->
+        <!--     <field name="name">Object 2</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object3" model="abcd.abcd"> -->
+        <!--     <field name="name">Object 3</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object4" model="abcd.abcd"> -->
+        <!--     <field name="name">Object 4</field> -->
+        <!--   </record> -->
+        <!--  -->
+    </data>
+</openerp>
